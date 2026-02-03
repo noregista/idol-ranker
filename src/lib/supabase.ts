@@ -1,7 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://veahluryyrvulidpnzfs.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "sb_publishable_Z0KhqXMpGC8qfWITSEe9rg_Ky9jfj-m";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+
+if (!supabaseUrl || !supabaseAnonKey) {
+    if (typeof window !== "undefined") { // クライアントサイドでのみ警告
+        console.warn("Supabase credentials are missing. Please check your environment variables.");
+    }
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
