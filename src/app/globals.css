@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Background Colors */
+  --background: #FFF0F5;
+  --background-alt: #FAFAFA;
+  --foreground: #333333;
+
+  /* Action Colors */
+  --primary: #FF4081;
+  --primary-hover: #F50057;
+
+  /* Accent Colors */
+  --accent-blue: #00B0FF;
+  --accent-yellow: #FFD700;
+  --accent-green: #00E676;
+
+  /* Group Colors */
+  --nogizaka: #9B59B6;
+  --sakurazaka: #E91E63;
+  --hinatazaka: #03A9F4;
+  --snowman: #B0BEC5;
+  --sixtones: #F44336;
+
+  /* Ranking Colors */
+  --gold: #FFD700;
+  --silver: #C0C0C0;
+  --bronze: #CD7F32;
+}
+
+/* ダークモード */
+.dark {
+  --background: #1a1a2e;
+  --background-alt: #16213e;
+  --foreground: #eaeaea;
+  --primary: #FF6B9D;
+  --primary-hover: #FF4081;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-green: var(--accent-green);
+  --color-nogizaka: var(--nogizaka);
+  --color-sakurazaka: var(--sakurazaka);
+  --color-hinatazaka: var(--hinatazaka);
+  --color-snowman: var(--snowman);
+  --color-sixtones: var(--sixtones);
+  --color-gold: var(--gold);
+  --color-silver: var(--silver);
+  --color-bronze: var(--bronze);
+  --font-sans: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ダークモード時のカード背景 */
+.dark .bg-white {
+  background-color: #1e1e3f !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #16213e !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1a1a2e !important;
+}
+
+.dark .text-gray-800 {
+  color: #eaeaea !important;
+}
+
+.dark .text-gray-700 {
+  color: #d4d4d4 !important;
+}
+
+.dark .text-gray-600 {
+  color: #a8a8a8 !important;
+}
+
+.dark .text-gray-500 {
+  color: #8a8a8a !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #3a3a5a !important;
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ダークモード時のグラデーション背景 */
+.dark .from-pink-50 {
+  --tw-gradient-from: #1a1a2e !important;
+}
+
+.dark .to-purple-50 {
+  --tw-gradient-to: #16213e !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white rounded-2xl shadow-lg;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply rounded-full font-bold transition-all duration-200;
+  background: linear-gradient(135deg, var(--primary) 0%, #FF6B9D 100%);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 64, 129, 0.4);
+}
+
+/* Progress Bar Animation */
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+}
+
+.progress-bar {
+  animation: progressFill 0.8s ease-out forwards;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-custom {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ad Placeholder */
+.ad-placeholder {
+  @apply bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400;
+}
